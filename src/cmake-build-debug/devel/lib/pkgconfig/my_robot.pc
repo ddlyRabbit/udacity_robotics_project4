@@ -1,0 +1,8 @@
+prefix=/home/abhinavroy/robotics_learn/udacity_project2/src/cmake-build-debug/devel
+
+Name: my_robot
+Description: Description of my_robot
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
