@@ -18,8 +18,6 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request& req,
     twist_msg.angular.z = req.angular_z;
     twist_pub.publish(twist_msg);
 
-    ros::Duration(3).sleep();
-
     res.msg_feedback = ("Twist set - linear_x:%1.2f angular_z:%1.2f",twist_msg.linear.x,twist_msg.angular.z);
     ROS_INFO_STREAM(res.msg_feedback);
 

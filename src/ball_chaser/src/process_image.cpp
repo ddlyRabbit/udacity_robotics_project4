@@ -27,10 +27,13 @@ void process_image_callback(const sensor_msgs::Image img)
     int step = img.step;
     int height = img.height;
     int ball_column = 0;
+    int colors = step/width;
     bool found = false;
 
-    for (ball_column=0; ball_column <= step * height; ball_column++){
-        if(img.data[ball_column]==white_pixel){
+    for (ball_column=0; ball_column <= step * height; ball_column+=colors ){
+        if(img.data[ball_column]==white_pixel &&
+	   img.data[ball_column+1]==white_pixel &&
+	   img.data[ball_column+2]==white_pixel){
             found = true;
             ball_column = ball_column % step;
             break;
@@ -39,12 +42,12 @@ void process_image_callback(const sensor_msgs::Image img)
 
     if (found == true){
         if(ball_column < step*1/3){
-            drive_robot(0.0,0.05);
+            drive_robot(0.0,0.5);
         }
         else if(ball_column < step*2/3){
-            drive_robot(0.1,0.0);
+            drive_robot(0.3,0.0);
         } else{
-            drive_robot(0.0,-0.05);
+            drive_robot(0.0,-0.5);
         }
     } else {
         drive_robot(0.0,0.0);
