@@ -1,8 +1,8 @@
 prefix=/home/abhinavroy/robotics_learn/udacity_robotics_project4/devel
 
-Name: my_robot
-Description: Description of my_robot
-Version: 0.0.0
+Name: teleop_twist_keyboard
+Description: Description of teleop_twist_keyboard
+Version: 0.6.2
 Cflags: 
 Libs: -L${prefix}/lib 
 Requires: 
